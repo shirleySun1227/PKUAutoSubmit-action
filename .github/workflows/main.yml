@@ -1,0 +1,36 @@
+name: "PKUAutoSubmit"
+
+description: "燕园云战役自动填报小助手"
+
+inputs:
+  username:
+    description: "IAAA 用户名"
+    required: true
+  password:
+    description: "IAAA 密码"
+    required: true
+  campus:
+    description: "所在校区 (燕园、万柳、畅春园、圆明园、中关新园)"
+name: PKUAutoSubmit
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: "25 2 * * *"
+    - cron: "45 4 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: yousiki/PKUAutoSubmit-action@master
+        with:
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          reason: ${{ secrets.reason }}
+          wechat: "False"
+          sckey: ${{ secrets.sckey }}
