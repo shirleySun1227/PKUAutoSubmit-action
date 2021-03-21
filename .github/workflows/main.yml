@@ -1,16 +1,3 @@
-name: "PKUAutoSubmit"
-
-description: "燕园云战役自动填报小助手"
-
-inputs:
-  username:
-    description: "IAAA 用户名"
-    required: true
-  password:
-    description: "IAAA 密码"
-    required: true
-  campus:
-    description: "所在校区 (燕园、万柳、畅春园、圆明园、中关新园)"
 name: PKUAutoSubmit
 
 on:
